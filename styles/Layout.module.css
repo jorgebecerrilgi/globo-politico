@@ -1,0 +1,26 @@
+.navBar {
+    --height: 72px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: var(--height);
+    padding-inline: 24px;
+    background: linear-gradient(180deg, rgba(0, 23, 38, 0.75) 25%, transparent);
+}
+.navBar > .navList {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    margin: 0;
+    list-style-type: none;
+}
+.navBar .navIcon {
+    width: initial;
+    height: 100%;
+    padding-top: 24px;
+    padding-bottom: 16px;
+}
+.navBar .navIcon.navLogo {
+    padding-top: 16px;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1185.4" height="1185.4" version="1.1" viewBox="0 0 313.63 313.63" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <title>Globo Politico Icon for Search</title>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Globo Politico Icon for Search</dc:title>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(-4927.9 -1477.1)">
+  <path transform="matrix(.26458 0 0 .26458 6267.4 1921.3)" d="m-4300.5-1678.9c-232.78 0-423 190.22-423 423 0 91.062 29.113 175.61 78.492 244.8l-417.86 417.86 99.701 99.703 417.86-417.86c69.196 49.379 153.74 78.49 244.8 78.49 232.78 0 423-190.21 423-423 0-232.78-190.22-423-423-423zm0 140.99c156.58 0 282 125.43 282 282 0 156.58-125.43 282-282 282-156.58 0-282-125.42-282-282 0-156.58 125.42-282 282-282z" color="#000000" fill="#ccc" stroke-width="3.7795" style="-inkscape-stroke:none"/>
+ </g>
+</svg>
