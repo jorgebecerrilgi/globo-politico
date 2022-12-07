@@ -10,7 +10,7 @@ import IconSearch from "../assets/gb_icon_search.svg";
 
 interface Props {
     children: JSX.Element;
-}
+};
 
 const Layout: React.FC<Props> = ({ children }): JSX.Element => {
     return (
