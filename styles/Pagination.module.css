@@ -5,8 +5,7 @@
     justify-content: center;
     width: 100%;
     height: 48px;
-    margin-top: var(--fs-xl);
-    margin-bottom: var(--fs-600);
+    margin-block: var(--fs-600);
 }
 .arrow {
     height: 100%;

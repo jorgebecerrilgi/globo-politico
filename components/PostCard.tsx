@@ -17,7 +17,7 @@ const PostCard: React.FC<Props> = ({ children, image, title, authorName, date, i
     return isCover ? (
         <>
             <Image className={styles.image} alt="" src={image} fill />
-            <div className={styles.gradient}></div>
+            <div className={`${styles.gradient} ${styles.cover}`}></div>
             <div className={styles.content}>
                 <div className={styles.text}>
                     <span className={`${styles.new} gb-data`}>¡Nueva publicación!</span>

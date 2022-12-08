@@ -4,6 +4,7 @@ import PostCard from "../components/PostCard";
 import Button from "../components/Button";
 import Pagination from "../components/Pagination";
 import Post from "../components/Post";
+import PostSection from "../components/PostSection";
 import styles from "../styles/Home.module.css";
 
 import Cover from "../assets/lgbtmx.jpeg";
@@ -28,13 +29,7 @@ const Home: React.FC = (): JSX.Element => {
                     isCover={true}
                 ></PostCard>
             </div>
-            <Pagination page={1}></Pagination>
-            <Post
-                image={Cover}
-                title="EL MUNDO AL REVÉS: Cuando la realidad deja de ser relevante"
-                authorName="Martín Hernández"
-                date="29 agosto, 2020"
-            ></Post>
+            <PostSection />
         </>
     );
 };

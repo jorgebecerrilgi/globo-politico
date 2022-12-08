@@ -1,12 +1,17 @@
 .gradient {
-    --gradient-start: 0%;
+    --gradient-start: #001524cc;
+    --gradient-end: #00152440;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgb(0, 23, 38) var(--gradient-start), transparent);
+    background: linear-gradient(0deg, var(--gradient-start) 0, var(--gradient-end));
     scale: 1 1.01;
+}
+.gradient.cover {
+    --gradient-start: #001726;
+    --gradient-end: transparent;
 }
 .image {
     object-fit: cover;
