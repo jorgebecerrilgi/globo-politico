@@ -1,15 +1,92 @@
+:root {
+    --fs-800: 6rem;
+    --fs-600: 2.5rem;
+    --fs-400: 3rem;
+    --fs-200: 1rem;
+    --fs-sm: 0.8rem;
+}
+@media all and (min-device-width: 360px) {
+    :root {
+        --fs-800: 6rem;
+        --fs-600: 3rem;
+        --fs-400: 3rem;
+        --fs-sm: 1rem;
+    }
+}
+@media all and (min-device-width: 576px) {
+    :root {
+        --fs-800: 6rem;
+        --fs-600: 3.5rem;
+        --fs-400: 3rem;
+    }
+}
+@media all and (min-device-width: 768px) {
+    :root {
+        --fs-800: 6rem;
+        --fs-600: 3.75rem;
+        --fs-400: 3rem;
+    }
+}
+@media all and (min-device-width: 992px) {
+    :root {
+        --fs-800: 6rem;
+        --fs-600: 4rem;
+        --fs-400: 3rem;
+    }
+}
+@media all and (min-device-width: 1200px) {
+    :root {
+        --fs-800: 6rem;
+        --fs-600: 4.25rem;
+        --fs-400: 3rem;
+        --fs-200: 1.25rem;
+    }
+}
+@media all and (min-device-width: 1400px) {
+    :root {
+        --fs-800: 6rem;
+        --fs-600: 4.5rem;
+        --fs-400: 3rem;
+        --fs-200: 1.5rem;
+    }
+}
 * {
+    --gb-white: #cccccc;
+    --gb-grey: #6d7981;
+    --gb-primary: #ce0056;
+    --gb-primary-75: #ce0056bf;
+    --gb-primary-50: #ce005680;
+    --gb-primary-25: #ce005640;
     box-sizing: border-box;
 }
 html,
 body {
     padding: 0;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-        Helvetica Neue, sans-serif;
     background-color: #001726;
+}
+html,
+body,
+button {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+        Droid Sans, Helvetica Neue, sans-serif;
+    color: var(--gb-white);
+}
+button {
+    font-size: var(--fs-sm);
 }
 a {
     color: inherit;
     text-decoration: none;
+}
+h1 {
+    font-weight: 800;
+    font-size: var(--fs-600);
+    line-height: var(--fs-600);
+    word-wrap: anywhere;
+}
+.gb-data {
+    font-size: var(--fs-sm);
+    font-weight: 800;
+    color: var(--gb-grey);
 }

@@ -1,0 +1,10 @@
+.frontPost {
+    position: relative;
+    height: 100vh;
+}
+.button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 16px;
+}

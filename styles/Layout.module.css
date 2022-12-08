@@ -1,6 +1,7 @@
 .navBar {
     --height: 72px;
     position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -20,7 +21,15 @@
     height: 100%;
     padding-top: 24px;
     padding-bottom: 16px;
+    transition: all ease-in-out 250ms;
 }
 .navBar .navIcon.navLogo {
     padding-top: 16px;
+}
+.navBar .navIcon.navLogo:focus,
+.navBar .navIcon.navLogo:hover,
+.navBar .navIconWrapper:focus .navIcon,
+.navBar .navIconWrapper:hover .navIcon {
+    translate: 0 0.5em;
+    filter: drop-shadow(0 0 16px var(--gb-primary));
 }

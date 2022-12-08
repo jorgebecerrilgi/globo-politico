@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2820" height="3384" version="1.1" viewBox="0 0 746.12 895.35" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <title>Globo Politico Logo with White and Pink</title>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Globo Politico Logo with White and Pink</dc:title>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(-820.74 -2686)">
+  <g transform="translate(37.306 149.22)">
+   <path transform="scale(.26458)" d="m2961 11844v1128h282v-1128zm846 0v1128h282v-1128zm846 0v1128h282v-1128z" fill="#ccc" stroke-width="2.3094"/>
+   <path d="m1118.9 2536.8v149.22h37.571a149.22 149.22 0 0 1 144.42 111.65h-288.83a149.22 149.22 0 0 1 0-9e-4h-76.245a223.84 223.84 0 0 0-3.1757 37.571 223.84 223.84 0 0 0 223.84 223.84h298.45v373.06h74.612v-447.68h-373.06a149.22 149.22 0 0 1-144.56-112.18h329.7v-9e-4h35.608a223.84 223.84 0 0 0 3.0876-37.041 223.84 223.84 0 0 0-186.8-220.75v-77.699z" fill="#ce0056" stroke-width=".61103"/>
+  </g>
+ </g>
+</svg>

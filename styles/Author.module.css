@@ -1,0 +1,14 @@
+.author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.author > .picture {
+    background-color: var(--gb-grey);
+    height: var(--fs-200);
+    width: var(--fs-200);
+    border-radius: 50%;
+}
+.author > .name {
+    padding-block: 4px;
+}

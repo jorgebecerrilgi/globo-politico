@@ -1,0 +1,16 @@
+.button {
+    height: max-content;
+    background-color: var(--gb-primary);
+    color: var(--gb-white);
+    padding-block: 0.8em;
+    padding-inline: 2.5em;
+    border: none;
+    border-radius: 0.6em;
+    cursor: pointer;
+    transition: all ease-in-out 250ms;
+}
+.button:focus,
+.button:hover {
+    translate: 0 -0.25em;
+    box-shadow: 0 0 48px var(--gb-primary-75);
+}
