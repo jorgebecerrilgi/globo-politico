@@ -8,6 +8,7 @@
     border-radius: 0.6em;
     cursor: pointer;
     transition: all ease-in-out 250ms;
+    width: fit-content;
 }
 .button:focus,
 .button:hover {

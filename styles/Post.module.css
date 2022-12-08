@@ -1,0 +1,49 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 32px;
+    width: 100%;
+}
+.post > .card,
+.post > .text {
+    flex: none;
+}
+.post > .card {
+    min-height: 480px;
+    position: relative;
+}
+.post > .text {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 48px;
+    padding-inline: 48px;
+    width: 100%;
+}
+.post > .text > p {
+    width: 100%;
+}
+@media all and (min-device-width: 768px) {
+    .post {
+        flex-direction: row;
+    }
+    .post > .card,
+    .post > .text {
+        flex: 1;
+    }
+    .post > .text {
+        width: 60%;
+        padding-inline: 0;
+        padding-block: 16px;
+    }
+    .post > .text > p {
+        width: 75%;
+    }
+}
+.post > .text > .button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    height: 100%;
+    padding-block: 8px;
+}

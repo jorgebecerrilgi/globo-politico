@@ -2,6 +2,8 @@ import Head from "next/head";
 import Link from "next/link";
 import PostCard from "../components/PostCard";
 import Button from "../components/Button";
+import Pagination from "../components/Pagination";
+import Post from "../components/Post";
 import styles from "../styles/Home.module.css";
 
 import Cover from "../assets/lgbtmx.jpeg";
@@ -23,8 +25,16 @@ const Home: React.FC = (): JSX.Element => {
                     title="La ideología de discriminar"
                     authorName="Martín Hernández"
                     date="14 junio, 2020"
+                    isCover={true}
                 ></PostCard>
             </div>
+            <Pagination page={1}></Pagination>
+            <Post
+                image={Cover}
+                title="EL MUNDO AL REVÉS: Cuando la realidad deja de ser relevante"
+                authorName="Martín Hernández"
+                date="29 agosto, 2020"
+            ></Post>
         </>
     );
 };

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="436.83" height="519.3" version="1.1" viewBox="0 0 115.58 137.4" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <title>Globo Politico Icon for Arrow in Grey</title>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Globo Politico Icon for Arrow in Grey</dc:title>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(-6534.3 -2546.2)">
+  <path transform="matrix(.26458 0 0 .26458 6267.4 1921.3)" d="m1078.9 2361.8-70.5 122.11 238.23 137.54-238.23 137.54 70.5 122.11 366.33-211.5v-96.305z" fill="#6d7981"/>
+ </g>
+</svg>

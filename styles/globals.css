@@ -1,45 +1,50 @@
 :root {
-    --fs-800: 6rem;
+    --fs-xl: 5.8rem;
+    --fs-800: 4.5rem;
     --fs-600: 2.5rem;
-    --fs-400: 3rem;
+    --fs-400: 1.5rem;
     --fs-200: 1rem;
+    --fs-100: 0.8rem;
     --fs-sm: 0.8rem;
 }
 @media all and (min-device-width: 360px) {
     :root {
-        --fs-800: 6rem;
+        --fs-xl: 8rem;
+        --fs-800: 4.75rem;
         --fs-600: 3rem;
-        --fs-400: 3rem;
+        --fs-400: 1.75rem;
+        --fs-100: 1.1rem;
         --fs-sm: 1rem;
     }
 }
 @media all and (min-device-width: 576px) {
     :root {
-        --fs-800: 6rem;
+        --fs-800: 5rem;
         --fs-600: 3.5rem;
-        --fs-400: 3rem;
+        --fs-400: 2rem;
     }
 }
 @media all and (min-device-width: 768px) {
     :root {
-        --fs-800: 6rem;
+        --fs-800: 5.25rem;
         --fs-600: 3.75rem;
-        --fs-400: 3rem;
+        --fs-400: 2.25rem;
     }
 }
 @media all and (min-device-width: 992px) {
     :root {
-        --fs-800: 6rem;
+        --fs-800: 5.5rem;
         --fs-600: 4rem;
-        --fs-400: 3rem;
+        --fs-400: 2.5rem;
     }
 }
 @media all and (min-device-width: 1200px) {
     :root {
-        --fs-800: 6rem;
+        --fs-800: 5.75rem;
         --fs-600: 4.25rem;
-        --fs-400: 3rem;
+        --fs-400: 2.75rem;
         --fs-200: 1.25rem;
+        --fs-100: 1.2rem;
     }
 }
 @media all and (min-device-width: 1400px) {
@@ -53,11 +58,22 @@
 * {
     --gb-white: #cccccc;
     --gb-grey: #6d7981;
+    --gb-dark-grey: #4c5767;
     --gb-primary: #ce0056;
     --gb-primary-75: #ce0056bf;
     --gb-primary-50: #ce005680;
     --gb-primary-25: #ce005640;
     box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--gb-grey);
+    border-radius: 16px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--gb-dark-grey);
 }
 html,
 body {
@@ -79,11 +95,21 @@ a {
     color: inherit;
     text-decoration: none;
 }
-h1 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: 800;
+    word-wrap: everywhere;
+}
+h1 {
     font-size: var(--fs-600);
     line-height: var(--fs-600);
-    word-wrap: anywhere;
+}
+h2 {
+    font-size: var(--fs-400);
+    line-height: var(--fs-400);
+}
+p {
+    font-size: var(--fs-100);
+    line-height: 1.6;
 }
 .gb-data {
     font-size: var(--fs-sm);
