@@ -1,0 +1,14 @@
+.contactMe {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contactMe > h1 {
+    text-align: center;
+    color: var(--gb-primary);
+    overflow-wrap: anywhere;
+}
+.contactMe > .button {
+    margin-top: 24px;
+}

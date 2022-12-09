@@ -12,6 +12,7 @@
     position: relative;
     display: inline-block;
     overflow: hidden;
+    z-index: 1;
 }
 .background > .icons {
     --width: 320px;
@@ -24,6 +25,7 @@
     background-size: contain;
     filter: blur(12px) opacity(0.1);
     transition: all ease-out 250ms;
+    z-index: -1;
 }
 .background > .gradient {
     position: absolute;
@@ -35,5 +37,16 @@
     .background > .icons {
         --width: 640px;
         --right: -240px;
+    }
+}
+.background > .contactMe {
+    padding: 48px;
+    padding-top: 0;
+}
+@media all and (min-device-width: 768px) {
+    .background > .contactMe {
+        width: 65%;
+        padding-inline: 12%;
+        padding-bottom: 7%;
     }
 }

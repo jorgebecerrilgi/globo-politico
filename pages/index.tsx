@@ -1,6 +1,7 @@
 import Head from "next/head";
 import PostCard from "../components/PostCard";
 import PostSection from "../components/PostSection";
+import ContactMe from "../components/ContactMe";
 import styles from "../styles/Home.module.css";
 
 import Cover from "../assets/lgbtmx.jpeg";
@@ -28,7 +29,7 @@ const Home: React.FC = (): JSX.Element => {
                 <meta name="author" content="Martin Hernández" />
                 <link rel="icon" type="image/svg+xml" href="/globo_politico.svg" />
             </Head>
-            {/* Front Post */}
+            {/* Front Post START */}
             <div className={styles.frontPost}>
                 <PostCard
                     image={Cover}
@@ -38,13 +39,17 @@ const Home: React.FC = (): JSX.Element => {
                     isCover={true}
                 ></PostCard>
             </div>
+            {/* Front Post END */}
             <div className={styles.background}>
+                {/* Background Decoration START */}
                 <div
                     className={styles.icons}
                     style={{ translate: `0 -${displacement}px`, height: `calc(100% + ${MAX_DISPLACEMENT_PIXELS}px)` }}
                 ></div>
                 <div className={styles.gradient}></div>
+                {/* Background Decoration END */}
                 <PostSection />
+                <ContactMe className={styles.contactMe} />
             </div>
         </>
     );

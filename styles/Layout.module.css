@@ -8,6 +8,7 @@
     height: var(--height);
     padding-inline: 24px;
     background: linear-gradient(180deg, rgba(0, 23, 38, 0.75) 25%, transparent);
+    z-index: 1;
 }
 .navBar > .navList {
     display: flex;

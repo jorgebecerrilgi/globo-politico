@@ -1,0 +1,42 @@
+.input {
+    width: 100%;
+}
+.input > .information {
+    display: flex;
+    background-color: hsla(0, 0%, 80%, 0.03);
+}
+.input > .information > .iconWrapper {
+    width: 32px;
+}
+.input > .information > .iconWrapper > .icon {
+    padding: 0.5rem;
+    height: 100%;
+    width: 100%;
+    opacity: 0.3;
+}
+.input > .information > input,
+.input > .information > textarea {
+    font-size: var(--fs-sm);
+    background-color: transparent;
+    color: var(--gb-white);
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    transition: all 250ms;
+    width: 100%;
+}
+.input > .information > input::placeholder,
+.input > .information > textarea::placeholder {
+    color: var(--gb-dark-grey);
+}
+.input > .bar {
+    height: 2px;
+    background-color: var(--gb-dark-grey);
+    transition: all 250ms;
+}
+.input:has(.information > input:focus) > .bar,
+.input:has(.information > textarea:focus) > .bar {
+    height: 4px;
+    background-color: var(--gb-primary);
+    filter: drop-shadow(0 0 16px var(--gb-primary-75));
+}
