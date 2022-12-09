@@ -54,7 +54,7 @@ const PostSection: React.FC = (): JSX.Element => {
     return (
         <div className={styles.postSection}>
             <Pagination page={1} />
-            {data.map((post: PostData): JSX.Element => {
+            {data.map((post: PostData, idx: number): JSX.Element => {
                 return (
                     <Post
                         title={post.title}
@@ -62,6 +62,7 @@ const PostSection: React.FC = (): JSX.Element => {
                         date={post.date}
                         image={post.image}
                         previewText={post.previewText}
+                        key={idx}
                     />
                 );
             })}

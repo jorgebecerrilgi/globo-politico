@@ -1,15 +1,24 @@
 import Head from "next/head";
-import Link from "next/link";
 import PostCard from "../components/PostCard";
-import Button from "../components/Button";
-import Pagination from "../components/Pagination";
-import Post from "../components/Post";
 import PostSection from "../components/PostSection";
 import styles from "../styles/Home.module.css";
 
 import Cover from "../assets/lgbtmx.jpeg";
+import React, { useEffect, useState } from "react";
+
+const MAX_DISPLACEMENT_PIXELS = 360;
 
 const Home: React.FC = (): JSX.Element => {
+    const [displacement, setDisplacement] = useState<number>(0);
+
+    useEffect((): void => {
+        document.addEventListener("scroll", (e: Event) => {
+            e.preventDefault();
+            const newDisplacement = MAX_DISPLACEMENT_PIXELS * (window.scrollY / document.body.scrollHeight);
+            setDisplacement(newDisplacement);
+        });
+    }, []);
+
     return (
         <>
             <Head>
@@ -29,7 +38,14 @@ const Home: React.FC = (): JSX.Element => {
                     isCover={true}
                 ></PostCard>
             </div>
-            <PostSection />
+            <div className={styles.background}>
+                <div
+                    className={styles.icons}
+                    style={{ translate: `0 -${displacement}px`, height: `calc(100% + ${MAX_DISPLACEMENT_PIXELS}px)` }}
+                ></div>
+                <div className={styles.gradient}></div>
+                <PostSection />
+            </div>
         </>
     );
 };

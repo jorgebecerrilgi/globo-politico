@@ -8,3 +8,32 @@
     right: 0;
     margin: 16px;
 }
+.background {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+.background > .icons {
+    --width: 320px;
+    --right: -140px;
+    position: absolute;
+    right: var(--right);
+    width: var(--width);
+    background-image: url("/gb_pattern_bg_icons.svg");
+    background-repeat: repeat-y;
+    background-size: contain;
+    filter: blur(12px) opacity(0.1);
+    transition: all ease-out 250ms;
+}
+.background > .gradient {
+    position: absolute;
+    width: 100%;
+    height: 128px;
+    background: linear-gradient(180deg, #001726 0, transparent);
+}
+@media all and (min-device-width: 768px) {
+    .background > .icons {
+        --width: 640px;
+        --right: -240px;
+    }
+}
