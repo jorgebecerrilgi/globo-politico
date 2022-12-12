@@ -62,6 +62,7 @@ const PostSection: React.FC = (): JSX.Element => {
                         date={post.date}
                         image={post.image}
                         previewText={post.previewText}
+                        postId={post.title}
                         key={idx}
                     />
                 );

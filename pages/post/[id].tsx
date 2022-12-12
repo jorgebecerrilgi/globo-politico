@@ -2,7 +2,7 @@ import Image from "next/image";
 import Author from "../../components/Author";
 import Date from "../../components/Date";
 import BackgroundIcons from "../../components/BackgroundIcons";
-import Comments from "../../components/Comments";
+import CommentSection from "../../components/CommentSection";
 import styles from "../../styles/PostPage.module.css";
 
 import Cover from "../../assets/lgbtmx.jpeg";
@@ -129,7 +129,7 @@ const PostPage: React.FC = (): JSX.Element => {
                     cumplir sus sueños sin poner impedimentos a las personas solamente porque son distintas a nosotros.
                     Solo así cumpliremos el cometido.
                 </p>
-                <Comments className={styles.comments} />
+                <CommentSection className={styles.comments} />
             </BackgroundIcons>
         </>
     );

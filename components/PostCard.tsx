@@ -10,10 +10,19 @@ interface Props {
     title: string;
     authorName: string;
     date: string;
+    postId?: string;
     isCover?: boolean;
 }
 
-const PostCard: React.FC<Props> = ({ children, image, title, authorName, date, isCover = false }): JSX.Element => {
+const PostCard: React.FC<Props> = ({
+    children,
+    image,
+    title,
+    authorName,
+    date,
+    postId,
+    isCover = false,
+}): JSX.Element => {
     return isCover ? (
         <>
             <Image className={styles.image} alt="" src={image} fill />
@@ -27,7 +36,7 @@ const PostCard: React.FC<Props> = ({ children, image, title, authorName, date, i
                         <Date date={date} />
                     </div>
                 </div>
-                <Button prompt="Leer" />
+                <Button prompt="Leer" href={`/post/${postId}`} />
             </div>
             {children}
         </>

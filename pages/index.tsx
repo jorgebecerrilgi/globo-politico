@@ -24,6 +24,7 @@ const Home: React.FC = (): JSX.Element => {
                     title="La ideología de discriminar"
                     authorName="Martín Hernández"
                     date="14 junio, 2020"
+                    postId="La ideología de discriminar"
                     isCover={true}
                 ></PostCard>
             </div>

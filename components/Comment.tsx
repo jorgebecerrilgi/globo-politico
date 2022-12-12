@@ -2,18 +2,21 @@ import Author from "./Author";
 import Date from "./Date";
 import styles from "../styles/Comment.module.css";
 
-const Comment: React.FC = (): JSX.Element => {
+interface Props {
+    authorName: string;
+    date: string;
+    className?: string;
+    children: string;
+}
+
+const Comment: React.FC<Props> = ({ authorName, date, className, children }): JSX.Element => {
     return (
-        <div className={styles.comment}>
+        <div className={`${styles.comment} ${className}`}>
             <div className={styles.information}>
-                <Author name="Jane Doe" />
-                <Date date="14 octubre, 2020" />
+                <Author name={authorName} />
+                <Date date={date} />
             </div>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id animi a natus deserunt explicabo? Magnam
-                illum assumenda eius voluptates molestiae, earum, itaque, voluptatem voluptate odio vitae nihil quisquam
-                non veritatis!
-            </p>
+            <p>{children}</p>
         </div>
     );
 };

@@ -10,9 +10,10 @@ interface Props {
     authorName: string;
     date: string;
     previewText: string;
+    postId: string;
 }
 
-const Post: React.FC<Props> = ({ image, title, authorName, date, previewText }): JSX.Element => {
+const Post: React.FC<Props> = ({ image, title, authorName, date, previewText, postId }): JSX.Element => {
     return (
         <div className={styles.post}>
             <div className={styles.card}>
@@ -20,11 +21,9 @@ const Post: React.FC<Props> = ({ image, title, authorName, date, previewText }):
             </div>
             <div className={styles.text}>
                 <Author name={authorName} />
-                <p>
-                    {previewText}
-                </p>
+                <p>{previewText}</p>
                 <div className={styles.button}>
-                    <Button prompt="Seguir leyendo" />
+                    <Button prompt="Seguir leyendo" href={`/post/${postId}`} />
                 </div>
             </div>
         </div>
