@@ -10,7 +10,7 @@
     flex: none;
 }
 .post > .card {
-    min-height: 480px;
+    min-height: 360px;
     position: relative;
 }
 .post > .text {
@@ -22,6 +22,11 @@
 }
 .post > .text > p {
     width: 100%;
+}
+@media all and (min-device-width: 360px) {
+    .post > .card {
+        min-height: 480px;
+    }
 }
 @media all and (min-device-width: 768px) {
     .post {
