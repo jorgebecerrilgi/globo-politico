@@ -1,0 +1,32 @@
+.backgroundIcons {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.backgroundIcons > .icons {
+    --width: 320px;
+    --right: -140px;
+    position: absolute;
+    right: var(--right);
+    width: var(--width);
+    background-image: url("/gb_pattern_bg_icons.svg");
+    background-repeat: repeat-y;
+    background-size: contain;
+    filter: blur(12px) opacity(0.1);
+    transition: all ease-out 250ms;
+    z-index: -1;
+}
+.backgroundIcons > .gradient {
+    position: absolute;
+    width: 100%;
+    height: 128px;
+    background: linear-gradient(180deg, #001726 0, transparent);
+    z-index: -1;
+}
+@media all and (min-device-width: 768px) {
+    .backgroundIcons > .icons {
+        --width: 640px;
+        --right: -240px;
+    }
+}

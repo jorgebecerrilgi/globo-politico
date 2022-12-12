@@ -114,6 +114,10 @@ h2 {
     font-size: var(--fs-400);
     line-height: var(--fs-400);
 }
+h3 {
+    font-size: var(--fs-200);
+    line-height: var(--fs-200);
+}
 p {
     font-size: var(--fs-100);
     line-height: 1.6;

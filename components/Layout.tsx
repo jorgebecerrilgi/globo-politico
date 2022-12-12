@@ -9,7 +9,7 @@ import IconTwitter from "../assets/gb_icon_twitter.svg";
 import IconSearch from "../assets/gb_icon_search.svg";
 
 interface Props {
-    children: JSX.Element;
+    children?: JSX.Element | JSX.Element[];
 }
 
 const Layout: React.FC<Props> = ({ children }): JSX.Element => {

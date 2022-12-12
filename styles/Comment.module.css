@@ -1,0 +1,10 @@
+.comment {
+    display: flex;
+    flex-direction: column;
+    margin-block: 32px;
+}
+.comment > .information {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

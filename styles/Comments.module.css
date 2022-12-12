@@ -1,0 +1,8 @@
+.comments > h1 {
+    color: var(--gb-primary);
+}
+.comments > .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

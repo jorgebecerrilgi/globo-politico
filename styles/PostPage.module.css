@@ -1,7 +1,6 @@
 .imageWrapper {
     position: relative;
     height: 100vh;
-    overflow: hidden;
 }
 .imageWrapper > .gradient {
     --gradient-start: #001726;
@@ -11,7 +10,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    scale: 1.01 1.01;
+    scale: 1 1.01;
     background: linear-gradient(0deg, var(--gradient-start) 0, #001524bf 50%, var(--gradient-end) 100%);
 }
 @media all and (min-device-width: 576px) {
@@ -42,3 +41,15 @@
     align-items: center;
     justify-content: space-around;
 }
+.contentWrapper {
+    padding-inline: 8vw;
+}
+.contentWrapper > p {
+    margin-block: 1.5em;
+}
+@media all and (min-device-width: 768px) {
+    .contentWrapper > .comments {
+        width: 65%;
+    }
+}
+
