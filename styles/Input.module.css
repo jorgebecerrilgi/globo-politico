@@ -8,6 +8,9 @@
 .input > .information > .iconWrapper {
     width: 32px;
 }
+.input > .information:has(textarea) > .iconWrapper {
+    place-self: flex-start;
+}
 .input > .information > .iconWrapper > .icon {
     padding: 0.5rem;
     height: 100%;
@@ -33,10 +36,23 @@
     height: 2px;
     background-color: var(--gb-dark-grey);
     transition: all 250ms;
+    margin-bottom: 2px;
 }
 .input:has(.information > input:focus) > .bar,
 .input:has(.information > textarea:focus) > .bar {
     height: 4px;
     background-color: var(--gb-primary);
     filter: drop-shadow(0 0 16px var(--gb-primary-75));
+}
+.input.canShowError:has(.information > input:invalid) > .bar,
+.input.canShowError:has(.information > textarea:invalid) > .bar {
+    background-color: firebrick;
+}
+.input > .error {
+    display: none;
+    color: firebrick;
+}
+.input.canShowError:has(.information > input:invalid) > .error,
+.input.canShowError:has(.information > textarea:invalid) > .error {
+    display: initial;
 }

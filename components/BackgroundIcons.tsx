@@ -7,7 +7,7 @@ interface Props {
     children: JSX.Element | JSX.Element[];
 }
 
-const BackgroundIcons: React.FC<Props> = ({ maxDisplacementPixels = 360, className, children }): JSX.Element => {
+const BackgroundIcons: React.FC<Props> = ({ maxDisplacementPixels = 480, className, children }): JSX.Element => {
     const [displacement, setDisplacement] = useState<number>(0);
 
     useEffect((): void => {

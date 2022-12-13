@@ -1,3 +1,4 @@
+import { ChangeEvent, FormEvent, useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import styles from "../styles/ContactMe.module.css";
@@ -11,13 +12,46 @@ interface Props {
 }
 
 const ContactMe: React.FC<Props> = ({ className = "" }): JSX.Element => {
+    const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [message, setMessage] = useState<string>("");
+
+    const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    };
+
     return (
         <div className={`${styles.contactMe} ${className}`}>
             <h1>Contáctame</h1>
-            <Input placeholder="Nombre" icon={User} />
-            <Input placeholder="Correo Electrónico" icon={Email} />
-            <Input placeholder="Mensaje" icon={Message} lines={8} />
-			<Button className={styles.button} prompt="Enviar" />
+            <form onSubmit={handleOnSubmit}>
+                <Input
+                    placeholder="Nombre"
+                    icon={User}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value.trimStart())}
+                    value={name}
+                    required
+                    errorMessage="Escribe tu nombre"
+                />
+                <Input
+                    placeholder="correo@ejemplo.com"
+                    icon={Email}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value.trim())}
+                    value={email}
+                    pattern=".+@.+\..+"
+                    required
+                    errorMessage="El correo electrónico es inválido"
+                />
+                <Input
+                    placeholder="Mensaje"
+                    icon={Message}
+                    lines={8}
+                    onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value.trimStart())}
+                    value={message}
+                    required
+                    errorMessage="Escribe tu mensaje"
+                />
+                <Button className={styles.button} prompt="Enviar" type="submit" />
+            </form>
         </div>
     );
 };

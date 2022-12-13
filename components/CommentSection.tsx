@@ -6,20 +6,43 @@ import styles from "../styles/CommentSection.module.css";
 
 import User from "../assets/gb_icon_user.svg";
 import Message from "../assets/gb_icon_message.svg";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 interface Props {
     className?: string;
 }
 
 const CommentSection: React.FC<Props> = ({ className }): JSX.Element => {
+    const [name, setName] = useState<string>("");
+    const [comment, setComment] = useState<string>("");
+
+    const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    };
+
     return (
         <div className={`${styles.comments} ${className}`}>
             <h1>Comentarios</h1>
-            <div className={styles.inputs}>
-                <Input placeholder="Nombre" icon={User} />
-                <Input placeholder="Comentario" icon={Message} lines={8} />
-                <Button prompt="Publicar" />
-            </div>
+            <form onSubmit={handleOnSubmit}>
+                <Input
+                    placeholder="Nombre"
+                    icon={User}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value.trimStart())}
+                    value={name}
+                    errorMessage="Escribe tu nombre"
+                    required
+                />
+                <Input
+                    placeholder="Comentario"
+                    icon={Message}
+                    lines={8}
+                    onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setComment(e.target.value.trimStart())}
+                    value={comment}
+                    errorMessage="Escribe tu comentario"
+                    required
+                />
+                <Button prompt="Publicar" type="submit" />
+            </form>
             <Pagination page={1} />
             <h2>2 comentarios</h2>
             <Comment authorName="Martín Hernández" date="24 octubre, 2020">
