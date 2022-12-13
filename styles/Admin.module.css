@@ -1,0 +1,17 @@
+.admin {
+    display: flex;
+    flex-direction: column;
+    max-width: 786px;
+    padding: 32px;
+    margin: auto;
+}
+.admin > h1 {
+    color: var(--gb-primary);
+    text-shadow: 0 0 128px var(--gb-primary-75);
+    text-align: center;
+}
+.admin > form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

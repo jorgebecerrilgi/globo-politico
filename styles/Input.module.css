@@ -27,6 +27,7 @@
     outline: none;
     transition: all 250ms;
     width: 100%;
+    color-scheme: dark;
 }
 .input > .information > input::placeholder,
 .input > .information > textarea::placeholder {

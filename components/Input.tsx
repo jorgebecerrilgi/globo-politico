@@ -6,6 +6,7 @@ import { ChangeEventHandler, useState } from "react";
 interface Props {
     icon?: StaticImageData;
     placeholder?: string;
+    type?: "text" | "date";
     lines?: number;
     onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     value?: string | number | readonly string[];
@@ -17,6 +18,7 @@ interface Props {
 const Input: React.FC<Props> = ({
     placeholder = "",
     icon,
+    type = "text",
     lines = 0,
     onChange,
     value,
@@ -33,7 +35,7 @@ const Input: React.FC<Props> = ({
     const inputElement =
         lines < 1 ? (
             <input
-                type="text"
+                type={type}
                 placeholder={placeholder}
                 onChange={onChange}
                 value={value}
