@@ -141,9 +141,6 @@ const Admin = () => {
                     type="date"
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setDate(e.target.value)}
                     value={date}
-                    // pattern={
-                    //     ".{1,2} (enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre), .{4}"
-                    // }
                     errorMessage="Debe haber una fecha"
                     required
                 />

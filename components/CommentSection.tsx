@@ -12,6 +12,8 @@ interface Props {
     className?: string;
 }
 
+const TEMP_POST_ID: string = "estado-sin-derechos";
+
 const CommentSection: React.FC<Props> = ({ className }): JSX.Element => {
     const [name, setName] = useState<string>("");
     const [comment, setComment] = useState<string>("");
