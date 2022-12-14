@@ -1,6 +1,6 @@
-import Author from "./Author";
-import Date from "./Date";
-import styles from "../styles/Comment.module.css";
+import Author from "../../utility/Author";
+import Date from "../../utility/Date";
+import styles from "../../../styles/Comment.module.css";
 
 interface Props {
     authorName: string;

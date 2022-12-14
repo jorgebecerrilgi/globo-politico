@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../styles/BackgroundIcons.module.css";
+import styles from "../../styles/BackgroundIcons.module.css";
 
 interface Props {
     maxDisplacementPixels?: number;

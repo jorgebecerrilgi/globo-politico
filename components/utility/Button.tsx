@@ -1,7 +1,6 @@
-import styles from "../styles/Button.module.css";
-import { Property } from "../node_modules/csstype/index";
 import Link from "next/link";
-import { ButtonHTMLAttributes, DetailedHTMLProps, MouseEventHandler } from "react";
+import { MouseEventHandler } from "react";
+import styles from "../../styles/Button.module.css";
 
 interface Props {
     prompt: string;

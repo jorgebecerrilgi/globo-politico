@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Author from "../../components/Author";
-import Date from "../../components/Date";
-import BackgroundIcons from "../../components/BackgroundIcons";
-import CommentSection from "../../components/CommentSection";
+import Author from "../../components/utility/Author";
+import Date from "../../components/utility/Date";
+import BackgroundIcons from "../../components/utility/BackgroundIcons";
+import CommentSection from "../../components/pages/post/CommentSection";
 import styles from "../../styles/PostPage.module.css";
 
 import Cover from "../../assets/lgbtmx.jpeg";

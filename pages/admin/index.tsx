@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
+import Input from "../../components/utility/Input";
+import Button from "../../components/utility/Button";
 import styles from "../../styles/Admin.module.css";
 
 import { db } from "../../config/firebase";

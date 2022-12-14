@@ -1,11 +1,11 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import Input from "./Input";
-import Button from "./Button";
-import styles from "../styles/ContactMe.module.css";
+import Input from "../utility/Input";
+import Button from "../utility/Button";
+import styles from "../../styles/ContactMe.module.css";
 
-import User from "../assets/gb_icon_user.svg";
-import Email from "../assets/gb_icon_email.svg";
-import Message from "../assets/gb_icon_message.svg";
+import User from "../../assets/gb_icon_user.svg";
+import Email from "../../assets/gb_icon_email.svg";
+import Message from "../../assets/gb_icon_message.svg";
 
 interface Props {
     className?: string;

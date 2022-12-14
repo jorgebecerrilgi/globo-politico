@@ -1,11 +1,11 @@
 import { StaticImageData } from "next/image";
-import Pagination from "./Pagination";
+import Pagination from "../utility/Pagination";
 import Post from "./Post";
-import styles from "../styles/PostSection.module.css";
+import styles from "../../styles/PostSection.module.css";
 
-import ImageMundo from "../assets/DELETE_mundoalreves.jpg";
-import ImageYouth from "../assets/DELETE_youth.jpg";
-import ImageAutocracy from "../assets/DELETE_autocracy.jpeg";
+import ImageMundo from "../../assets/DELETE_mundoalreves.jpg";
+import ImageYouth from "../../assets/DELETE_youth.jpg";
+import ImageAutocracy from "../../assets/DELETE_autocracy.jpeg";
 
 type PostData = {
     title: string;

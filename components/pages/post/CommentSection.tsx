@@ -1,11 +1,11 @@
-import Input from "./Input";
-import Button from "./Button";
-import Pagination from "./Pagination";
+import Input from "../../utility/Input";
+import Button from "../../utility/Button";
+import Pagination from "../../utility/Pagination";
 import Comment from "./Comment";
-import styles from "../styles/CommentSection.module.css";
+import styles from "../../../styles/CommentSection.module.css";
 
-import User from "../assets/gb_icon_user.svg";
-import Message from "../assets/gb_icon_message.svg";
+import User from "../../../assets/gb_icon_user.svg";
+import Message from "../../../assets/gb_icon_message.svg";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 interface Props {

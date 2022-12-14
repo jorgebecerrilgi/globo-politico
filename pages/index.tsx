@@ -1,8 +1,8 @@
 import Head from "next/head";
-import PostCard from "../components/PostCard";
-import BackgroundIcons from "../components/BackgroundIcons";
-import PostSection from "../components/PostSection";
-import ContactMe from "../components/ContactMe";
+import PostCard from "../components/pages/PostCard";
+import BackgroundIcons from "../components/utility/BackgroundIcons";
+import PostSection from "../components/pages/PostSection";
+import ContactMe from "../components/pages/ContactMe";
 import styles from "../styles/Home.module.css";
 
 import Cover from "../assets/lgbtmx.jpeg";

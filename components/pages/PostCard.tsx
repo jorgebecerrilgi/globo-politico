@@ -1,8 +1,8 @@
 import Image, { StaticImageData } from "next/image";
-import Author from "./Author";
-import Date from "./Date";
-import Button from "./Button";
-import styles from "../styles/PostCard.module.css";
+import Author from "../utility/Author";
+import Date from "../utility/Date";
+import Button from "../utility/Button";
+import styles from "../../styles/PostCard.module.css";
 
 interface Props {
     children?: JSX.Element;

@@ -1,7 +1,7 @@
-import { StaticImageData } from "next/image";
 import Image from "next/image";
-import styles from "../styles/Input.module.css";
+import { StaticImageData } from "next/image";
 import { ChangeEventHandler, useState } from "react";
+import styles from "../../styles/Input.module.css";
 
 interface Props {
     icon?: StaticImageData;

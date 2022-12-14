@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import styles from "../styles/Author.module.css";
+import styles from "../../styles/Author.module.css";
 
 interface Props {
     name: string;

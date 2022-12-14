@@ -1,8 +1,8 @@
 import { StaticImageData } from "next/image";
 import PostCard from "./PostCard";
-import Author from "./Author";
-import Button from "./Button";
-import styles from "../styles/Post.module.css";
+import Author from "../utility/Author";
+import Button from "../utility/Button";
+import styles from "../../styles/Post.module.css";
 
 interface Props {
     image: StaticImageData;
