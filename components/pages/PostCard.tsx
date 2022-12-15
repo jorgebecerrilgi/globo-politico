@@ -9,7 +9,7 @@ interface Props {
     image: StaticImageData;
     title: string;
     authorName: string;
-    date: string;
+    date: string | Date;
     postId?: string;
     isCover?: boolean;
 }

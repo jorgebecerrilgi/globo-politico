@@ -4,7 +4,7 @@ import Button from "../../components/utility/Button";
 import styles from "../../styles/Admin.module.css";
 
 import { db } from "../../config/firebase";
-import { doc, setDoc, DocumentReference, getDoc, DocumentSnapshot } from "firebase/firestore";
+import { doc, setDoc, DocumentReference, getDoc, DocumentSnapshot, DocumentData } from "firebase/firestore";
 import { firestore } from "firebase-admin";
 
 type ImageData = {
@@ -66,13 +66,13 @@ const contentToPreview: (content: string) => string = (content: string): string 
 };
 
 const checkIfPostExists: (post: PostData) => Promise<boolean> = async (post: PostData): Promise<boolean> => {
-    const docRef: DocumentReference<firestore.DocumentData> = doc(db, "posts", titleToPostID(post.title));
-    const docSnap: DocumentSnapshot<firestore.DocumentData> = await getDoc(docRef);
+    const docRef: DocumentReference<DocumentData> = doc(db, "posts", titleToPostID(post.title));
+    const docSnap: DocumentSnapshot<DocumentData> = await getDoc(docRef);
     return docSnap.exists();
 };
 
 const createPost: (post: PostData) => Promise<void> = async (post: PostData): Promise<void> => {
-    const docRef: DocumentReference<firestore.DocumentData> = doc(db, "posts", titleToPostID(post.title));
+    const docRef: DocumentReference<DocumentData> = doc(db, "posts", titleToPostID(post.title));
     await setDoc(docRef, post);
 };
 

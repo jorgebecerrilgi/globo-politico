@@ -10,7 +10,7 @@ import ImageAutocracy from "../../assets/DELETE_autocracy.jpeg";
 type PostData = {
     title: string;
     authorName: string;
-    date: string;
+    date: string | Date;
     image: StaticImageData;
     previewText: string;
 };

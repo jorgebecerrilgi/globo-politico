@@ -4,7 +4,7 @@ import styles from "../../../styles/Comment.module.css";
 
 interface Props {
     authorName: string;
-    date: string;
+    date: string | Date;
     className?: string;
     children: string;
 }

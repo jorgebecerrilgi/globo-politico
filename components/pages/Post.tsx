@@ -8,7 +8,7 @@ interface Props {
     image: StaticImageData;
     title: string;
     authorName: string;
-    date: string;
+    date: string | Date;
     previewText: string;
     postId: string;
 }

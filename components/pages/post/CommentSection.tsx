@@ -1,18 +1,30 @@
+import { ChangeEvent, FormEvent, useState } from "react";
+import { db } from "../../../config/firebase";
+import { addDoc, collection, CollectionReference, DocumentData, DocumentReference } from "firebase/firestore";
 import Input from "../../utility/Input";
 import Button from "../../utility/Button";
-import Pagination from "../../utility/Pagination";
-import Comment from "./Comment";
+import CommentPagination from "./CommentPagination";
 import styles from "../../../styles/CommentSection.module.css";
 
 import User from "../../../assets/gb_icon_user.svg";
 import Message from "../../../assets/gb_icon_message.svg";
-import { ChangeEvent, FormEvent, useState } from "react";
 
 interface Props {
     className?: string;
 }
 
+type CommentData = {
+    author: string;
+    date: Date;
+    content: string;
+};
+
 const TEMP_POST_ID: string = "estado-sin-derechos";
+
+const createComment: (comment: CommentData) => Promise<void> = async (comment: CommentData): Promise<void> => {
+    const colRef: CollectionReference<DocumentData> = collection(db, `posts/${TEMP_POST_ID}/comments`);
+    const docRef: DocumentReference<DocumentData> = await addDoc(colRef, comment);
+};
 
 const CommentSection: React.FC<Props> = ({ className }): JSX.Element => {
     const [name, setName] = useState<string>("");
@@ -20,6 +32,12 @@ const CommentSection: React.FC<Props> = ({ className }): JSX.Element => {
 
     const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const newComment: CommentData = {
+            author: name,
+            date: new Date(),
+            content: comment,
+        };
+        createComment(newComment);
     };
 
     return (
@@ -45,12 +63,7 @@ const CommentSection: React.FC<Props> = ({ className }): JSX.Element => {
                 />
                 <Button prompt="Publicar" type="submit" />
             </form>
-            <Pagination page={1} />
-            <h2>2 comentarios</h2>
-            <Comment authorName="Martín Hernández" date="24 octubre, 2020">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, officiis.
-            </Comment>
-            <Pagination page={1} />
+            <CommentPagination postID={TEMP_POST_ID} />
         </div>
     );
 };
