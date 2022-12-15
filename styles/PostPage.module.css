@@ -46,6 +46,7 @@
 }
 .contentWrapper > p {
     margin-block: 1.5em;
+    white-space: break-spaces;
 }
 @media all and (min-device-width: 768px) {
     .contentWrapper > .comments {

@@ -24,11 +24,11 @@ interface Props {
     date: string | Date;
 }
 
-const Date: React.FC<Props> = ({ date }): JSX.Element => {
+const DateTagline: React.FC<Props> = ({ date }): JSX.Element => {
     if (date instanceof Date) {
         date = dateToString(date);
     }
     return <span className={`gb-data`}>{date}</span>;
 };
 
-export default Date;
+export default DateTagline;

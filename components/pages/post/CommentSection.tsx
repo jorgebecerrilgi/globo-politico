@@ -9,24 +9,26 @@ import styles from "../../../styles/CommentSection.module.css";
 import User from "../../../assets/gb_icon_user.svg";
 import Message from "../../../assets/gb_icon_message.svg";
 
-interface Props {
-    className?: string;
-}
-
 type CommentData = {
     author: string;
     date: Date;
     content: string;
 };
 
-const TEMP_POST_ID: string = "estado-sin-derechos";
-
-const createComment: (comment: CommentData) => Promise<void> = async (comment: CommentData): Promise<void> => {
-    const colRef: CollectionReference<DocumentData> = collection(db, `posts/${TEMP_POST_ID}/comments`);
+const createComment: (comment: CommentData, postID: string) => Promise<void> = async (
+    comment: CommentData,
+    postID: string
+): Promise<void> => {
+    const colRef: CollectionReference<DocumentData> = collection(db, `posts/${postID}/comments`);
     const docRef: DocumentReference<DocumentData> = await addDoc(colRef, comment);
 };
 
-const CommentSection: React.FC<Props> = ({ className }): JSX.Element => {
+interface Props {
+    postID: string;
+    className?: string;
+}
+
+const CommentSection: React.FC<Props> = ({ className, postID }): JSX.Element => {
     const [name, setName] = useState<string>("");
     const [comment, setComment] = useState<string>("");
 
@@ -37,7 +39,7 @@ const CommentSection: React.FC<Props> = ({ className }): JSX.Element => {
             date: new Date(),
             content: comment,
         };
-        createComment(newComment);
+        createComment(newComment, postID);
     };
 
     return (
@@ -63,7 +65,7 @@ const CommentSection: React.FC<Props> = ({ className }): JSX.Element => {
                 />
                 <Button prompt="Publicar" type="submit" />
             </form>
-            <CommentPagination postID={TEMP_POST_ID} />
+            <CommentPagination postID={postID} />
         </div>
     );
 };

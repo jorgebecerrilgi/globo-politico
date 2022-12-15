@@ -1,5 +1,5 @@
 import Author from "../../utility/Author";
-import Date from "../../utility/Date";
+import DateTagline from "../../utility/DateTagline";
 import styles from "../../../styles/Comment.module.css";
 
 interface Props {
@@ -14,7 +14,7 @@ const Comment: React.FC<Props> = ({ authorName, date, className, children }): JS
         <div className={`${styles.comment} ${className}`}>
             <div className={styles.information}>
                 <Author name={authorName} />
-                <Date date={date} />
+                <DateTagline date={date} />
             </div>
             <p>{children}</p>
         </div>

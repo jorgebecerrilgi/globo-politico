@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import Author from "../utility/Author";
-import Date from "../utility/Date";
+import DateTagline from "../utility/DateTagline";
 import Button from "../utility/Button";
 import styles from "../../styles/PostCard.module.css";
 
@@ -33,7 +33,7 @@ const PostCard: React.FC<Props> = ({
                     <h1>{title}</h1>
                     <div className={styles.information}>
                         <Author name={authorName} />
-                        <Date date={date} />
+                        <DateTagline date={date} />
                     </div>
                 </div>
                 <Button prompt="Leer" href={`/post/${postId}`} />
@@ -48,7 +48,7 @@ const PostCard: React.FC<Props> = ({
                 <div className={styles.text}>
                     <h2>{title}</h2>
                     <div className={styles.information}>
-                        <Date date={date} />
+                        <DateTagline date={date} />
                     </div>
                 </div>
             </div>
