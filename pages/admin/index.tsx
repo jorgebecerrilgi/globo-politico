@@ -1,11 +1,11 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, LegacyRef, MutableRefObject, RefObject, useRef, useState } from "react";
 import Input from "../../components/utility/Input";
 import Button from "../../components/utility/Button";
 import styles from "../../styles/Admin.module.css";
 
-import { db } from "../../config/firebase";
+import { db, storage } from "../../config/firebase";
 import { doc, setDoc, DocumentReference, getDoc, DocumentSnapshot, DocumentData } from "firebase/firestore";
-import { firestore } from "firebase-admin";
+import { StorageReference, ref, uploadBytes, StorageError, getDownloadURL } from "firebase/storage";
 
 type ImageData = {
     src: string;
@@ -28,9 +28,6 @@ const getDateString: (date: Date) => string = (date: Date): string => {
     const day: number = date.getDate();
     // Format is YYYY-MM-DD.
     return `${year}-${month < 10 ? "0" : ""}${month}-${day < 10 ? "0" : ""}${day}`;
-    // return `${currentDate.getDate()} ${months[currentDate.getMonth()]}, ${currentDate.getFullYear()}`;
-    // return currentDate.toLocaleDateString();
-    // return currentDate.toISOString().substring(0, 10);
 };
 
 const getDate: (date: string) => Date = (date: string): Date => {
@@ -71,25 +68,42 @@ const checkIfPostExists: (post: PostData) => Promise<boolean> = async (post: Pos
     return docSnap.exists();
 };
 
-const createPost: (post: PostData) => Promise<void> = async (post: PostData): Promise<void> => {
-    const docRef: DocumentReference<DocumentData> = doc(db, "posts", titleToPostID(post.title));
+const createPost: (post: PostData, postID: string) => Promise<void> = async (
+    post: PostData,
+    postID: string
+): Promise<void> => {
+    const docRef: DocumentReference<DocumentData> = doc(db, "posts", postID);
     await setDoc(docRef, post);
+};
+
+const uploadImage: (imageFile: File, fileRef: StorageReference) => Promise<boolean> = async (
+    imageFile: File,
+    fileRef: StorageReference
+): Promise<boolean> => {
+    try {
+        await uploadBytes(fileRef, imageFile);
+        return true;
+    } catch (e) {
+        console.log(e);
+        return false;
+    }
 };
 
 const Admin = () => {
     const [title, setTitle] = useState<string>("");
     const [author, setAuthor] = useState<string>("Martín Hernández");
     const [date, setDate] = useState<string>(getDateString(new Date()));
-    const [imageSource, setImageSource] = useState<string>("");
     const [imageDescription, setImageDescription] = useState<string>("");
     const [imageCredits, setImageCredits] = useState<string>("");
     const [content, setContent] = useState<string>("");
+
+    const inputFileElement: RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
 
     const resetData: () => void = (): void => {
         setTitle("");
         setAuthor("Martín Hernández");
         setDate(getDateString(new Date()));
-        setImageSource("");
+        if (inputFileElement.current) inputFileElement.current.files = null;
         setImageDescription("");
         setImageCredits("");
         setContent("");
@@ -99,12 +113,19 @@ const Admin = () => {
         e: FormEvent<HTMLFormElement>
     ): Promise<void> => {
         e.preventDefault();
+        if (!inputFileElement.current?.files?.length || inputFileElement.current.files.length === 0) return;
+        const imageFile: File = inputFileElement.current.files[0];
+        const postID: string = titleToPostID(title);
+        const fileRef: StorageReference = ref(storage, `${postID}/${imageFile.name}`);
+        const imageUploadedSuccessfully: boolean = await uploadImage(imageFile, fileRef);
+        if (!imageUploadedSuccessfully) return;
+        const imageURL: string = await getDownloadURL(fileRef);
         const newPost: PostData = {
             title: title,
             author: author,
             date: getDate(date),
             image: {
-                src: imageSource,
+                src: imageURL,
                 alt: imageDescription,
                 credits: imageCredits,
             },
@@ -115,7 +136,7 @@ const Admin = () => {
             window.alert("A post with that title already exists!");
             return;
         }
-        createPost(newPost);
+        createPost(newPost, postID);
         resetData();
     };
 
@@ -144,14 +165,14 @@ const Admin = () => {
                     errorMessage="Debe haber una fecha"
                     required
                 />
-                <Input
-                    placeholder="www.imgur.com/my-image"
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => setImageSource(e.target.value.trimStart())}
-                    value={imageSource}
-                    pattern=".+\..+/.+"
-                    errorMessage="Escribe el link de la imagen principal de tu artículo"
+                <input
+                    ref={inputFileElement}
+                    type="file"
+                    accept="image/jpeg"
+                    placeholder="Imagen principal del artículo"
                     required
                 />
+                <span className="gb-data">La imagen debe pesar menos de 256kb.</span>
                 <Input
                     placeholder="La torre eiffel durante la noche, con..."
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setImageDescription(e.target.value.trimStart())}
