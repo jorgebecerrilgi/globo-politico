@@ -35,6 +35,7 @@
     margin-top: 8px;
     margin-bottom: 24px;
     overflow-wrap: everywhere;
+    color: var(--gb-primary);
 }
 .imageWrapper > .content > .information {
     display: flex;
@@ -47,6 +48,7 @@
 .contentWrapper > p {
     margin-block: 1.5em;
     white-space: break-spaces;
+    word-break: break-word;
 }
 @media all and (min-device-width: 768px) {
     .contentWrapper > .comments {
