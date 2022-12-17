@@ -4,7 +4,7 @@ import Post from "./Post";
 import styles from "../../styles/PostSection.module.css";
 
 import { Timestamp } from "firebase/firestore";
-import { useState } from "react";
+import { RefObject, useRef, useState } from "react";
 
 type ImageData = {
     src: string;
@@ -35,6 +35,8 @@ interface Props {
 
 const PostSection: React.FC<Props> = ({ posts }): JSX.Element => {
     const [paginationNumber, setPaginationNumber] = useState<number>(1);
+    const postSectionElement: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
+
     const paginationBack: boolean = paginationNumber > 1;
     const paginationNext: boolean = paginationNumber <= (posts.length - 1) / MAX_POSTS_PER_PAGE;
     const currentPagePostIndex: number = (paginationNumber - 1) * MAX_POSTS_PER_PAGE;
@@ -44,16 +46,18 @@ const PostSection: React.FC<Props> = ({ posts }): JSX.Element => {
         setPaginationNumber((currentPaginationNumber: number): number => {
             return currentPaginationNumber + 1;
         });
+        if (postSectionElement.current) postSectionElement.current.scrollIntoView({ behavior: "smooth" });
     };
-
+    
     const handleOnPrevious: () => void = (): void => {
         setPaginationNumber((currentPaginationNumber: number): number => {
             return currentPaginationNumber - 1;
         });
+        if (postSectionElement.current) postSectionElement.current.scrollIntoView({ behavior: "smooth" });
     };
 
     return (
-        <div className={styles.postSection}>
+        <div ref={postSectionElement} className={styles.postSection}>
             <Pagination
                 page={paginationNumber}
                 back={paginationBack}
