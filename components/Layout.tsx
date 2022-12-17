@@ -3,10 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Layout.module.css";
 
-import Logo from "../assets/gb_white_pink.svg";
-import IconHome from "../assets/gb_icon_home.svg";
-import IconTwitter from "../assets/gb_icon_twitter.svg";
-import IconSearch from "../assets/gb_icon_search.svg";
+import Logo from "../public/gb_white_pink.svg";
+import IconHome from "../public/gb_icon_home.svg";
+import IconTwitter from "../public/gb_icon_twitter.svg";
+import IconSearch from "../public/gb_icon_search.svg";
 
 interface Props {
     children?: JSX.Element | JSX.Element[];

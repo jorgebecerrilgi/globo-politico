@@ -5,7 +5,6 @@ import PostSection from "../components/pages/PostSection";
 import ContactMe from "../components/pages/ContactMe";
 import styles from "../styles/Home.module.css";
 
-import Cover from "../assets/lgbtmx.jpeg";
 import { GetStaticProps } from "next";
 import {
     CollectionReference,

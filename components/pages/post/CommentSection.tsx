@@ -6,8 +6,8 @@ import Button from "../../utility/Button";
 import CommentPagination from "./CommentPagination";
 import styles from "../../../styles/CommentSection.module.css";
 
-import User from "../../../assets/gb_icon_user.svg";
-import Message from "../../../assets/gb_icon_message.svg";
+import User from "../../../public/gb_icon_user.svg";
+import Message from "../../../public/gb_icon_message.svg";
 
 type CommentData = {
     author: string;

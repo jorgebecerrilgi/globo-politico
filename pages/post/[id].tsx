@@ -19,8 +19,7 @@ import DateTagline from "../../components/utility/DateTagline";
 import BackgroundIcons from "../../components/utility/BackgroundIcons";
 import CommentSection from "../../components/pages/post/CommentSection";
 import styles from "../../styles/PostPage.module.css";
-
-import Cover from "../../assets/lgbtmx.jpeg";
+import Head from "next/head";
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const colRef: CollectionReference<DocumentData> = collection(db, "posts");
@@ -111,6 +110,13 @@ const PostPage: React.FC<Props> = ({ title, author, date, image, content, id }):
 
     return (
         <>
+            <Head>
+                <title>{title}</title>
+                <meta name="description" content="Blog personal" />
+                <meta name="keywords" content="blog, politica, politics, mexico" />
+                <meta name="author" content="Martin Hernández" />
+                <link rel="icon" type="image/svg+xml" href="/globo_politico.svg" />
+            </Head>
             <div className={styles.imageWrapper}>
                 <Image className={styles.image} src={image.src} alt={image.alt} fill quality={100}></Image>
                 <div className={`${styles.gradient} ${styles.cover}`}></div>

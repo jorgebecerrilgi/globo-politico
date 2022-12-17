@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "../../styles/Pagination.module.css";
 
-import Arrow from "../../assets/gb_icon_arrow_grey.svg";
+import Arrow from "../../public/gb_icon_arrow_grey.svg";
 import { MouseEventHandler } from "react";
 
 interface Props {

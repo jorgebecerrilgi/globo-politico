@@ -3,9 +3,6 @@ import Pagination from "../utility/Pagination";
 import Post from "./Post";
 import styles from "../../styles/PostSection.module.css";
 
-import ImageMundo from "../../assets/DELETE_mundoalreves.jpg";
-import ImageYouth from "../../assets/DELETE_youth.jpg";
-import ImageAutocracy from "../../assets/DELETE_autocracy.jpeg";
 import { Timestamp } from "firebase/firestore";
 import { useState } from "react";
 

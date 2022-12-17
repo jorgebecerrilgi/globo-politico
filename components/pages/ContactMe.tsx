@@ -3,9 +3,9 @@ import Input from "../utility/Input";
 import Button from "../utility/Button";
 import styles from "../../styles/ContactMe.module.css";
 
-import User from "../../assets/gb_icon_user.svg";
-import Email from "../../assets/gb_icon_email.svg";
-import Message from "../../assets/gb_icon_message.svg";
+import User from "../../public/gb_icon_user.svg";
+import Email from "../../public/gb_icon_email.svg";
+import Message from "../../public/gb_icon_message.svg";
 import { CollectionReference, DocumentData, DocumentReference, addDoc, collection } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
