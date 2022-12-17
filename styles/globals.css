@@ -1,7 +1,7 @@
 :root {
     --fs-xl: 5.8rem;
     --fs-800: 4.5rem;
-    --fs-600: 2rem;
+    --fs-600: 1.75rem;
     --fs-400: 1.25rem;
     --fs-200: 1rem;
     --fs-100: 0.7rem;
@@ -122,6 +122,7 @@ h3 {
 p {
     font-size: var(--fs-100);
     line-height: 1.6;
+    word-break: break-word;
 }
 .gb-data {
     font-size: var(--fs-sm);

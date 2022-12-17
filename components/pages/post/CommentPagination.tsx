@@ -4,8 +4,12 @@ import styles from "../../../styles/CommentPagination.module.css";
 import {
     collection,
     CollectionReference,
+    doc,
     DocumentData,
+    DocumentReference,
+    DocumentSnapshot,
     endBefore,
+    getDoc,
     getDocs,
     limit,
     orderBy,
@@ -37,7 +41,7 @@ type CommentsPageData = {
     hasNext: boolean;
 };
 
-const MAX_COMMENTS_PER_PAGE: number = 2;
+const MAX_COMMENTS_PER_PAGE: number = 5;
 
 const getCommentsSnapshot: (
     mode: GetCommentsModes,
@@ -100,6 +104,14 @@ const getCommentsPageData: (
     return pageData;
 };
 
+const getCommentsAmount: (postID: string) => Promise<number> = async (postID: string): Promise<number> => {
+    const commentsAmountDocRef: DocumentReference<DocumentData> = doc(db, `commentsData/${postID}`);
+    const commentsAmountDocSnap: DocumentSnapshot<DocumentData> = await getDoc(commentsAmountDocRef);
+
+    const amount: number = commentsAmountDocSnap.exists() ? commentsAmountDocSnap.data().amount : 0;
+    return amount;
+};
+
 const DEFAULT_PAGE_DATA: CommentsPageData = {
     comments: [],
     hasNext: false,
@@ -109,6 +121,14 @@ const DEFAULT_PAGE_DATA: CommentsPageData = {
 const CommentPagination: React.FC<Props> = ({ postID }): JSX.Element => {
     const [pageData, setPageData] = useState<CommentsPageData>(DEFAULT_PAGE_DATA);
     const [paginationNumber, setPaginationNumber] = useState<number>(1);
+    const [commentsAmount, setCommentsAmount] = useState<number>(0);
+
+    useEffect(() => {
+        const setInitialCommentsAmount = async () => {
+            setCommentsAmount(await getCommentsAmount(postID));
+        };
+        setInitialCommentsAmount();
+    }, []);
 
     useEffect(() => {
         const setInitialPageData: () => Promise<void> = async (): Promise<void> => {
@@ -146,7 +166,7 @@ const CommentPagination: React.FC<Props> = ({ postID }): JSX.Element => {
                 next={pageData.hasNext}
                 back={pageData.hasPrevious}
             />
-            <h2>2 comentarios</h2>
+            <h2>{commentsAmount} comentarios</h2>
             {pageData.comments.map((comment: QueryDocumentSnapshot<DocumentData>, index: number): JSX.Element => {
                 const data: DocumentData = comment.data();
                 const timestamp: Timestamp = data.date;

@@ -1,6 +1,16 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { db } from "../../../config/firebase";
-import { addDoc, collection, CollectionReference, DocumentData, DocumentReference } from "firebase/firestore";
+import {
+    addDoc,
+    collection,
+    CollectionReference,
+    doc,
+    DocumentData,
+    DocumentReference,
+    DocumentSnapshot,
+    getDoc,
+    setDoc,
+} from "firebase/firestore";
 import Input from "../../utility/Input";
 import Button from "../../utility/Button";
 import CommentPagination from "./CommentPagination";
@@ -8,6 +18,7 @@ import styles from "../../../styles/CommentSection.module.css";
 
 import User from "../../../public/gb_icon_user.svg";
 import Message from "../../../public/gb_icon_message.svg";
+import { NextRouter, useRouter } from "next/router";
 
 type CommentData = {
     author: string;
@@ -21,6 +32,13 @@ const createComment: (comment: CommentData, postID: string) => Promise<void> = a
 ): Promise<void> => {
     const colRef: CollectionReference<DocumentData> = collection(db, `posts/${postID}/comments`);
     const docRef: DocumentReference<DocumentData> = await addDoc(colRef, comment);
+
+    const commentsAmountDocRef: DocumentReference<DocumentData> = doc(db, `commentsData/${postID}`);
+    const commentsAmountDocSnap: DocumentSnapshot<DocumentData> = await getDoc(commentsAmountDocRef);
+
+    const amount: number = commentsAmountDocSnap.exists() ? commentsAmountDocSnap.data().amount + 1 : 1;
+
+    await setDoc(commentsAmountDocRef, { amount: amount });
 };
 
 interface Props {
@@ -31,6 +49,7 @@ interface Props {
 const CommentSection: React.FC<Props> = ({ className, postID }): JSX.Element => {
     const [name, setName] = useState<string>("");
     const [comment, setComment] = useState<string>("");
+    const router: NextRouter = useRouter();
 
     const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -40,6 +59,7 @@ const CommentSection: React.FC<Props> = ({ className, postID }): JSX.Element => 
             content: comment,
         };
         createComment(newComment, postID);
+        router.reload();
     };
 
     return (
