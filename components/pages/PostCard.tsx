@@ -6,7 +6,7 @@ import styles from "../../styles/PostCard.module.css";
 
 interface Props {
     children?: JSX.Element;
-    image: StaticImageData;
+    image: StaticImageData | string;
     title: string;
     authorName: string;
     date: string | Date;
@@ -25,7 +25,7 @@ const PostCard: React.FC<Props> = ({
 }): JSX.Element => {
     return isCover ? (
         <>
-            <Image className={styles.image} alt="" src={image} fill />
+            <Image className={styles.image} alt="" src={image} fill quality={100} />
             <div className={`${styles.gradient} ${styles.cover}`}></div>
             <div className={styles.content}>
                 <div className={styles.text}>

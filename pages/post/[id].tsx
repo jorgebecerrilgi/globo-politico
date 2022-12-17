@@ -112,7 +112,7 @@ const PostPage: React.FC<Props> = ({ title, author, date, image, content, id }):
     return (
         <>
             <div className={styles.imageWrapper}>
-                <Image className={styles.image} src={image.src} alt={image.alt} fill></Image>
+                <Image className={styles.image} src={image.src} alt={image.alt} fill quality={100}></Image>
                 <div className={`${styles.gradient} ${styles.cover}`}></div>
                 <div className={styles.content}>
                     <h1>{title}</h1>

@@ -5,7 +5,7 @@ import Button from "../utility/Button";
 import styles from "../../styles/Post.module.css";
 
 interface Props {
-    image: StaticImageData;
+    image: StaticImageData | string;
     title: string;
     authorName: string;
     date: string | Date;

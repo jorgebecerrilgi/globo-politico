@@ -6,7 +6,7 @@ import styles from "../../styles/Input.module.css";
 interface Props {
     icon?: StaticImageData;
     placeholder?: string;
-    type?: "text" | "date";
+    type?: "text" | "date" | "email";
     lines?: number;
     onChange?: ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     value?: string | number | readonly string[];

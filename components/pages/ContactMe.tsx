@@ -6,18 +6,44 @@ import styles from "../../styles/ContactMe.module.css";
 import User from "../../assets/gb_icon_user.svg";
 import Email from "../../assets/gb_icon_email.svg";
 import Message from "../../assets/gb_icon_message.svg";
+import { CollectionReference, DocumentData, DocumentReference, addDoc, collection } from "firebase/firestore";
+import { db } from "../../config/firebase";
 
 interface Props {
     className?: string;
 }
+
+type MessageData = {
+    name: string;
+    email: string;
+    message: string;
+};
+
+const createMessage: (message: MessageData) => Promise<void> = async (message: MessageData): Promise<void> => {
+    const colRef: CollectionReference<DocumentData> = collection(db, "messages");
+    const docRef: DocumentReference<DocumentData> = await addDoc(colRef, message);
+};
 
 const ContactMe: React.FC<Props> = ({ className = "" }): JSX.Element => {
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [message, setMessage] = useState<string>("");
 
+    const clearInputs: () => void = () => {
+        setName("");
+        setEmail("");
+        setMessage("");
+    };
+
     const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const newMessage: MessageData = {
+            name: name,
+            email: email,
+            message: message,
+        };
+        createMessage(newMessage);
+        clearInputs();
     };
 
     return (
@@ -35,6 +61,7 @@ const ContactMe: React.FC<Props> = ({ className = "" }): JSX.Element => {
                 <Input
                     placeholder="correo@ejemplo.com"
                     icon={Email}
+                    type="email"
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value.trim())}
                     value={email}
                     pattern=".+@.+\..+"

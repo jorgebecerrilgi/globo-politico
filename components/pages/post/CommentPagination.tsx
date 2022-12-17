@@ -111,7 +111,6 @@ const CommentPagination: React.FC<Props> = ({ postID }): JSX.Element => {
     const [paginationNumber, setPaginationNumber] = useState<number>(1);
 
     useEffect(() => {
-        return; // REMOVE TO MAKE WORK.
         const setInitialPageData: () => Promise<void> = async (): Promise<void> => {
             setPageData(await getCommentsPageData(GetCommentsModes.FromStart, postID));
         };
