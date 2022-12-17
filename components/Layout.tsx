@@ -36,11 +36,11 @@ const Layout: React.FC<Props> = ({ children }): JSX.Element => {
                             <Image src={IconTwitter} alt="" className={styles.navIcon}></Image>
                         </a>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link href="/" className={styles.navIconWrapper}>
                             <Image src={IconSearch} alt="" className={styles.navIcon}></Image>
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
         </>
